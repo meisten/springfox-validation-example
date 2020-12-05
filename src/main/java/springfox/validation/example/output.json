@@ -1,0 +1,399 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Api Documentation",
+    "description": "Api Documentation",
+    "termsOfService": "urn:tos",
+    "contact": {},
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    },
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8094",
+      "description": "Inferred Url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "category-controller",
+      "description": "Category Controller"
+    }
+  ],
+  "paths": {
+    "/v1/category": {
+      "get": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "Get categories",
+        "operationId": "getUsingGET",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Category"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "Add category",
+        "operationId": "postUsingPOST",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryPOSTView"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Category"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/v1/category/{categoryId}": {
+      "get": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "Get category",
+        "operationId": "getUsingGET_1",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "categoryId",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "minimum": 1,
+              "exclusiveMinimum": false,
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Category"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "Put category",
+        "operationId": "putUsingPUT",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "categoryId",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "minimum": 1,
+              "exclusiveMinimum": false,
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryPOSTView"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Category"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "Delete category",
+        "operationId": "deleteUsingDELETE",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "categoryId",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "minimum": 1,
+              "exclusiveMinimum": false,
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Category"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "Patch category",
+        "operationId": "patchUsingPATCH",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "categoryId",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "minimum": 1,
+              "exclusiveMinimum": false,
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Category1POSTView"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Category"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Category": {
+        "title": "Category",
+        "required": [
+          "child",
+          "id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "child": {
+            "description": "Child",
+            "$ref": "#/components/schemas/Child"
+          },
+          "id": {
+            "type": "integer",
+            "description": "ID",
+            "format": "int64",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Name",
+            "example": "Category#1"
+          }
+        }
+      },
+      "Category1POSTView": {
+        "title": "Category1POSTView",
+        "type": "object",
+        "properties": {
+          "child": {
+            "description": "Child",
+            "$ref": "#/components/schemas/Child1POSTView"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name",
+            "example": "Category#1"
+          }
+        }
+      },
+      "CategoryPOSTView": {
+        "title": "CategoryPOSTView",
+        "required": [
+          "child",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "child": {
+            "description": "Child",
+            "$ref": "#/components/schemas/ChildPOSTView"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name",
+            "example": "Category#1"
+          }
+        }
+      },
+      "Child": {
+        "title": "Child",
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name",
+            "example": "Child#1"
+          }
+        }
+      },
+      "Child1POSTView": {
+        "title": "Child1POSTView",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name",
+            "example": "Child#1"
+          }
+        }
+      },
+      "ChildPOSTView": {
+        "title": "ChildPOSTView",
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name",
+            "example": "Child#1"
+          }
+        }
+      }
+    }
+  }
+}
