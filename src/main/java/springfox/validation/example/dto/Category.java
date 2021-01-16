@@ -55,6 +55,11 @@ public class Category {
   @ApiModelProperty(value = "Child")
   private Child child;
 
+  @NotNull
+  @JsonView({INFO.class, POST.class, PATCH.class})
+  @ApiModelProperty(value = "ok")
+  private String ok;
+
   public Category(Long id) {
     this.id = id;
   }
